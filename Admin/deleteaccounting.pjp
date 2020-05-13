@@ -1,0 +1,13 @@
+<?php
+//Controller
+
+require_once 'CarModel.php';
+require_once 'carview.php';
+
+
+$stdView=new CarView();
+
+$stdView->DeleteData();
+
+
+?>
