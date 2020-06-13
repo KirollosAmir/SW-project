@@ -1,3 +1,29 @@
+<head>
+  <script>
+function isInputNumber(evt) {
+  var ch = (evt.which) ? (evt.which) : (evt.keyCode)
+  if(ch != 46 && ch > 31 && (ch < 48 || ch > 57)){
+return false;
+}
+else {
+	return true;
+}
+}
+  
+</script>
+
+<script>
+function a(event) {
+  var char = event.which;
+  
+  if (char >31 && char !=32 && (char < 65 || char > 90 ) && (char < 97 || char > 122)) {
+    
+    return false;
+  }  
+}
+
+
+</script>
 <style>
 
 input[type=text], select {
@@ -44,7 +70,7 @@ class userView
 
 		$con = new mysqli("localhost", "root", "","pharmacy");
 
-				echo"<form  method='post'>";
+				echo"<form  onsubmit='return validation()' method='post'>";
                 echo"<table>";
 
 
@@ -52,28 +78,28 @@ class userView
 
 			echo"<tr> ";
 			echo"	<td>FirstName</td>";
-				echo"<td><input type='text' class='input100' name='FirstName' ></td>";
+				echo"<td><input type='text' class='input100' name='FirstName'  style='width:120px;' type='text' maxlength='20' onkeypress='return a(event)'; required=''></td>";
 
 			echo"</tr>";
 
 
 			echo"<tr> ";
 			echo"	<td>LastName</td>";
-				echo"<td><input type='text' class='input100' name='LastName' ></td>";
+				echo"<td><input type='text' class='input100' name='LastName'  style='width:120px;' type='text' maxlength='20' onkeypress='return a(event)'; required='' ></td>";
 
 			echo"</tr>";
 
 
 			echo"<tr> ";
 			echo"	<td>DateOfBirth</td>";
-				echo"<td><input class='input100' type='date' name='DateOfBirth' ></td>";
+				echo"<td><input class='input100' type='date' name='DateOfBirth' required='' ></td>";
 
 			echo"</tr>";
 
 
 			echo"<tr> ";
 			echo"	<td>Gender</td>";
-				echo"<td><input type='text' class='input100' name='Gender' ></td>";
+				echo"<td><input type='text' class='input100' name='Gender'  style='width:120px;' type='text' maxlength='20' onkeypress='return a(event)'; required='' ></td>";
 
 			echo"</tr>";
 
@@ -81,14 +107,14 @@ class userView
 
 			echo"<tr> ";
 			echo"	<td>Email</td>";
-				echo"<td><input type='text' class='input100'name='Email' ></td>";
+				echo"<td><input type='text' class='input100'name='Email'  style='width:120px;' type='text' maxlength='20'  required='' ></td>";
 
 			echo"</tr>";
 
 
 			echo"<tr> ";
 			echo"	<td>Password</td>";
-				echo"<td><input type='text' class='input100'  name='Password' ></td>";
+				echo"<td><input type='text' class='input100'  name='Password' required='' onkeypress='return isInputNumber(event);'></td>";
 
 			echo"</tr>";
 
