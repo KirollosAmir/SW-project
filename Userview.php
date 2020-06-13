@@ -26,6 +26,7 @@ function a(event) {
 </script>
 
 <style>
+	
 
 input[type=text], select {
   width: 100%;
@@ -58,3 +59,76 @@ input[type=submit] {
   font-family:Time new roman;
 }
 </style>
+
+<?php
+require_once 'UserModel.php';
+
+class userView
+{
+
+
+
+		function Add(){
+
+		$con = new mysqli("localhost", "root", "","pharmacy");
+
+				echo"<form  onsubmit='return validation()' method='post'>";
+                echo"<table>";
+
+
+
+
+			echo"<tr> ";
+			echo"	<td>FirstName</td>";
+				echo"<td><input type='text' class='input100' name='FirstName'  style='width:120px;' type='text' maxlength='20' onkeypress='return a(event)'; required=''></td>";
+
+			echo"</tr>";
+
+
+			echo"<tr> ";
+			echo"	<td>LastName</td>";
+				echo"<td><input type='text' class='input100' name='LastName'  style='width:120px;' type='text' maxlength='20' onkeypress='return a(event)'; required='' ></td>";
+
+			echo"</tr>";
+
+
+			echo"<tr> ";
+			echo"	<td>DateOfBirth</td>";
+				echo"<td><input class='input100' type='date' name='DateOfBirth' required='' ></td>";
+
+			echo"</tr>";
+
+
+			echo"<tr> ";
+			echo"	<td>Gender</td>";
+				echo"<td><input type='text' class='input100' name='Gender'  style='width:120px;' type='text' maxlength='20' onkeypress='return a(event)'; required='' ></td>";
+
+			echo"</tr>";
+
+
+
+			echo"<tr> ";
+			echo"	<td>Email</td>";
+				echo"<td><input type='text' class='input100'name='Email'  style='width:120px;' type='text' maxlength='20'  required='' ></td>";
+
+			echo"</tr>";
+
+
+			echo"<tr> ";
+			echo"	<td>Password</td>";
+				echo"<td><input type='text' class='input100'  name='Password' required='' onkeypress='return isInputNumber(event);'></td>";
+
+			echo"</tr>";
+
+
+			echo"<tr> ";
+				echo"<td>UserTypeID </td>";
+
+	echo"<td>";
+
+		 $con = new mysqli("localhost", "root", "","pharmacy");
+		$sql="select * from usertype ";
+
+
+  	$result = mysqli_query($con,$sql);
+
