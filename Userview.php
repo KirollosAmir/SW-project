@@ -132,3 +132,58 @@ class userView
 
   	$result = mysqli_query($con,$sql);
 
+		echo"<select  name='UsetTypeID' class='input100'>";
+
+		while($rows = mysqli_fetch_array($result))
+		{
+			$ID=$rows['ID'];
+		$Type=$rows['Type'];
+		echo"<option value='$ID'>$ID.$Type</option>";
+		}
+
+		echo"</select>";
+
+
+
+		echo"</td>";
+		echo"	</tr>";
+
+
+			echo"</tr>";
+
+
+			echo"<tr> ";
+			echo"	<td></td>";
+			echo"	<td><input type='submit' class='login100-form-btn' name='submit' value='Add'></td>";
+			echo"</tr>";
+	echo"</table>";
+	echo"</form>";
+
+if(isset($_POST['submit'])) {
+
+include_once("UserModel.php");
+
+$password =$_POST['Password'];
+$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+$crud = new usermodel();
+$pharmacyview=new usermodel();
+
+$crud->FirstName=$_POST['FirstName'];
+$crud->LastName =$_POST['LastName'];
+$crud->DateOfBirth = $_POST['DateOfBirth'];
+$crud->Gender=$_POST['Gender'];
+$crud->Email=$_POST['Email'];
+$crud->Password =$hashedPassword;
+$crud->UsetTypeID = $_POST['UsetTypeID'];
+
+$pharmacyview->Adding($crud);
+
+
+
+}
+
+	}
+	}
+
+?>
