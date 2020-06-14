@@ -52,13 +52,10 @@
 						</a>
 					</div>
 
-					<div class="container-login100-form-btn" >
-						<button class="login100-form-btn">
-							Sign in
-						</button>
-					</div>
+				
+					<br>
 						<div class="container-login100-form-btn" >
-						<button class="login100-form-btn">
+						<button action="" class="login100-form-btn">
 							frogetpassword
 						</button>
 					</div>
@@ -68,8 +65,11 @@
 						<span class="txt1 p-b-9">
 
 						</span>
+							<a href="forgetPassword.php" class="txt3">
+forgetpassword						</a>
 						<!--	<p>haven't account !!</p>!-->
-						<a href="Users.php" class="txt3">
+						<br><br>
+						<a href="Signupcontroller.php" class="txt3">
 							Sign up now
 						</a>
 					</div>
